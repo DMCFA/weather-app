@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-weight: normal;
+  font-family: sans-serif;
+}
+
+html {
+  background: linear-gradient(
+    90deg,
+    rgba(225, 229, 234, 1) 0%,
+    rgba(167, 187, 199, 1) 39%
+  );
+}
+
+.search {
+  min-height: 30vh;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+input,
+button {
+  height: 5rem;
+  font-size: 1rem;
+}
+
+input {
+  outline: none;
+  width: 100%;
+  padding: 0 1.6rem;
+  border-radius: 0.7rem;
+  transition: all 0.3s cubic-bezier(0, 0, 0.43, 1.49);
+  transition-property: width, border-radius;
+  z-index: 1;
+}
+
+button {
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
