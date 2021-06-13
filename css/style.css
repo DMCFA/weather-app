@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-weight: normal;
+  font-family: sans-serif;
+}
+
+html {
+  background: -webkit-gradient(linear, left top, right top, from(#e1e5ea), color-stop(39%, #a7bbc7));
+  background: linear-gradient(90deg, #e1e5ea 0%, #a7bbc7 39%);
+}
+
+.search {
+  min-height: 30vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+form {
+  position: absolute;
+  width: 30rem;
+  background: #57bd84;
+  border-radius: 0.7rem;
+}
+
+input,
+button {
+  height: 5rem;
+  font-size: 1rem;
+}
+
+input {
+  outline: none;
+  width: 100%;
+  padding: 0 1.6rem;
+  border-radius: 0.7rem;
+  -webkit-transition: all 0.3s cubic-bezier(0, 0, 0.43, 1.49);
+  transition: all 0.3s cubic-bezier(0, 0, 0.43, 1.49);
+  -webkit-transition-property: width, border-radius;
+  transition-property: width, border-radius;
+  z-index: 1;
+}
+
+button {
+  width: 6rem;
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 0 0.7rem 0.7rem 0;
+  font-weight: bold;
+  background-color: #3ea53e;
+}
+
+input:not(:placeholder-shown) {
+  border-radius: 0.7rem 0 0 0.7rem;
+  width: calc(100% - 6rem);
+}
+
+input:not(:placeholder-shown) + button {
+  display: block;
+}
+
+label {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+/*# sourceMappingURL=style.css.map */
