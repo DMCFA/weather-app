@@ -24,6 +24,10 @@ h1 {
   text-align: center;
 }
 
+ul {
+  list-style: none;
+}
+
 .search {
   min-height: 30vh;
   display: flex;
@@ -84,4 +88,86 @@ label {
   height: 1px;
   width: 1px;
   overflow: hidden;
+}
+
+//cities section
+
+#results-field {
+  margin: 3.15rem 0 1.25rem;
+}
+
+#results-field,
+.cities {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem 1.25rem;
+}
+
+#results-field,
+.city {
+  position: relative;
+  padding: 2.5rem 10%;
+  border-radius: 1.25rem;
+  background: #fff;
+  color: #53627c;
+}
+
+#results-field,
+.city::after {
+  content: "";
+  width: 90%;
+  height: 3rem;
+  position: absolute;
+  bottom: -0.75rem;
+  left: 5%;
+  z-index: -1;
+  opacity: 0.3;
+  border-radius: 1.25rem;
+  background: #fff;
+}
+
+#results-field,
+figcaption {
+  margin-top: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+#results-field,
+.temp {
+  font-size: 3rem;
+  font-weight: 500;
+  margin-top: 0.6rem;
+  color: #1e2432;
+}
+
+#results-field,
+.city,
+sup {
+  font-size: 0.5em;
+}
+
+#results-field,
+.city-name sup {
+  padding: 0.2em 0.6em;
+  border-radius: 1.9rem;
+  color: #fff;
+  background: #ff8c00;
+}
+
+#results-field,
+.icon {
+  margin-top: 0.6rem;
+  width: 6.25rem;
+  height: 6.25rem;
+}
+
+#results-field,
+.city-name,
+figcaption {
+  font-size: 2em;
+}
+
+.city-name {
+  margin-bottom: 0.4rem;
 }
