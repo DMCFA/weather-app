@@ -14,6 +14,16 @@ html {
   );
 }
 
+h1 {
+  margin: 4rem 0 2rem 0;
+  color: #da7f8f;
+  font-size: 3rem;
+  font-weight: 600;
+  font-variant: small-caps;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
 .search {
   min-height: 30vh;
   display: flex;
