@@ -1,27 +1,44 @@
-//INITIAL VARIABLES
+//API key for OpenWeather
 const KEY = '086bf94c958c7afc68924ccc4497a8ee'
 
-console.log(KEY);
+//set global variables
+const form = document.querySelector('.search form')
+const input = document.querySelector('.search input')
+const mainTitle = document.querySelector('.main-title')
+const list = document.querySelector('.cities')
 
-const form = document.getElementsByTagName('form')
+//mark up for adding cities
+const content = (name, country, temp, icon, description) => {
+    return (
+        `<h2 class='city-name' data-name='${name}, ${country}'>
+            <span>${name}</span>
+            <sup>${country}</sup>
+        </h2>
+        <span class='temp'>${temp}<sup>°C</sup></span>
+        <figure>
+            <img class='icon' src=${icon} alt=${description}>
+            <figcaption>${description}</figcaption>
+        </figure>
+        `
+    )
+}
 
-//GET LOCATION ON LOAD
-
+//Try to get current location on load
 window.addEventListener('load', () => {
     let lon
     let lat
-    let mainTitle = document.getElementsByClassName('main-title')
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
             lon = position.coords.longitude
             lat = position.coords.latitude
-            //API CALL
-            const api = `api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${KEY}`
+            mainTitle.textContent = 'Fetching your location data..'
+            //API call
+            const api = `api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${KEY}`
 
             const weatherData = async () => {
                 let response = await fetch('http://' + api)
-                //ERROR HANDLING
+                
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                   }
@@ -31,11 +48,43 @@ window.addEventListener('load', () => {
 
             weatherData()
                 .then(data => {
-                        const { main, name, sys, weather } = data
+                    //set variables
+                    const { main, name, sys, weather } = data
+                    const icon = `https://openweathermap.org/img/wn/${
+                        weather[0]["icon"]
+                        }@2x.png`;
+                    //change main title
+                    mainTitle.textContent = 'Search for another city below'
+                    //create list and add mark up
+                    const li = document.createElement('li')
+                    li.classList.add('city')
+
+                    li.innerHTML = content(name, sys.country, main.temp, icon, weather[0]['description'])
+                    list.appendChild(li)
                     })
-                .catch(e => 'There has been a problem with your fetch operation: ' + e.message)
-        })
-    } else {
-        
+                .catch(e => {
+                    e.textContent = `Can't seem to find your current location 😞`
+                })
+        }) 
     }
 })
+
+//Change Main Title if location is not available    
+mainTitle.textContent = 'Search for a city below'
+
+form.addEventListener('submit', e => {
+    e.preventDefault();
+    let inputVal = input.value;
+
+    //confirm if city is already displayed
+    const listItems = list.querySelector('.city')
+    const listArray = Array.from(listItems)
+
+    if (listArray.length > 0) {
+        const filteredArray = listArray.filter(item => {
+
+        })
+    }
+    })
+
+
