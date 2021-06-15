@@ -88,20 +88,20 @@ form.addEventListener('submit', e => {
                 if (inputVal.split(',')[1].length > 2) {
                     inputVal = inputVal.split(',')[0]
                     content = item
-                        .querySelector('city-name span')
+                        .querySelector('.city-name span')
                         .textContent.toLowerCase()
                 } else {
-                    content = item.querySelector('city-name').dataset.name.toLowerCase()
+                    content = item.querySelector('.city-name').dataset.name.toLowerCase()
                 }
             } else {
-                content = item.querySelector('city-name span').textContent.toLowerCase()
+                content = item.querySelector('.city-name span').textContent.toLowerCase()
             }
             return content = inputVal.toLowerCase()
             })
 
-        if (filteredArray.length > 0) {
+        if (filteredArray.length > 1) {
             mainTitle.textContent = `You already know the weather for ${
-                filteredArray[0].querySelector('city-name span').textContent},
+                filteredArray[0].querySelector('.city-name span').textContent},
                 if you are refering to a different city please provide the country code as well`
                 form.reset()
                 input.focus()
@@ -112,7 +112,7 @@ form.addEventListener('submit', e => {
     const api = `https://api.openweathermap.org/data/2.5/weather?q=${inputVal}&appid=${KEY}&units=metric`
 
     const weatherData = async () => {
-        let response = await fetch('http://' + api)
+        let response = await fetch(api)
         
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
