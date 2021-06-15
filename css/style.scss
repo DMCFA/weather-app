@@ -92,18 +92,25 @@ label {
 
 //cities section
 
-#results-field {
+#results_field {
   margin: 3.15rem 0 1.25rem;
 }
 
-#results-field,
+.results {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+#results_field,
 .cities {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem 1.25rem;
 }
 
-#results-field,
+#results_field,
 .city {
   position: relative;
   padding: 2.5rem 10%;
@@ -112,7 +119,7 @@ label {
   color: #53627c;
 }
 
-#results-field,
+#results_field,
 .city::after {
   content: "";
   width: 90%;
@@ -126,14 +133,14 @@ label {
   background: #fff;
 }
 
-#results-field,
+#results_field,
 figcaption {
   margin-top: 0.6rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
-#results-field,
+#results_field,
 .temp {
   font-size: 3rem;
   font-weight: 500;
@@ -141,13 +148,13 @@ figcaption {
   color: #1e2432;
 }
 
-#results-field,
+#results_field,
 .city,
 sup {
   font-size: 0.5em;
 }
 
-#results-field,
+#results_field,
 .city-name sup {
   padding: 0.2em 0.6em;
   border-radius: 1.9rem;
@@ -155,14 +162,14 @@ sup {
   background: #ff8c00;
 }
 
-#results-field,
+#results_field,
 .icon {
   margin-top: 0.6rem;
   width: 6.25rem;
   height: 6.25rem;
 }
 
-#results-field,
+#results_field,
 .city-name,
 figcaption {
   font-size: 2em;
