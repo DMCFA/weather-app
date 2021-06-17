@@ -1,14 +1,12 @@
 * {
   margin: 0;
   border: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   font-weight: normal;
   font-family: sans-serif;
 }
 
 html {
-  background: -webkit-gradient(linear, left top, right top, from(#e1e5ea), color-stop(39%, #a7bbc7));
   background: linear-gradient(90deg, #e1e5ea 0%, #a7bbc7 39%);
 }
 
@@ -28,21 +26,11 @@ ul {
 
 .search {
   min-height: 30vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column wrap;
-          flex-flow: column wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
 form {
@@ -63,9 +51,7 @@ input {
   width: 100%;
   padding: 0 1.6rem;
   border-radius: 0.7rem;
-  -webkit-transition: all 0.3s cubic-bezier(0, 0, 0.43, 1.49);
   transition: all 0.3s cubic-bezier(0, 0, 0.43, 1.49);
-  -webkit-transition-property: width, border-radius;
   transition-property: width, border-radius;
   z-index: 1;
 }
@@ -86,7 +72,6 @@ input:not(:placeholder-shown) {
   border-radius: 0.7rem 0 0 0.7rem;
   width: calc(100% - 6rem);
 }
-
 input:not(:placeholder-shown) + button {
   display: block;
 }
@@ -101,20 +86,23 @@ label {
   overflow: hidden;
 }
 
-#results-field {
-  margin: 3.15rem 0 1.25rem;
+#results_field {
+  margin: 4.4rem 0 1.25rem;
 }
 
-#results-field,
+.results {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
 .cities {
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[4];
-      grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem 1.25rem;
 }
 
-#results-field,
 .city {
   position: relative;
   padding: 2.5rem 10%;
@@ -123,7 +111,6 @@ label {
   color: #53627c;
 }
 
-#results-field,
 .city::after {
   content: "";
   width: 90%;
@@ -137,14 +124,12 @@ label {
   background: #fff;
 }
 
-#results-field,
 figcaption {
   margin-top: 0.6rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
-#results-field,
 .temp {
   font-size: 3rem;
   font-weight: 500;
@@ -152,13 +137,10 @@ figcaption {
   color: #1e2432;
 }
 
-#results-field,
-.city,
-sup {
+.city sup {
   font-size: 0.5em;
 }
 
-#results-field,
 .city-name sup {
   padding: 0.2em 0.6em;
   border-radius: 1.9rem;
@@ -166,20 +148,40 @@ sup {
   background: #ff8c00;
 }
 
-#results-field,
 .icon {
   margin-top: 0.6rem;
   width: 6.25rem;
   height: 6.25rem;
 }
 
-#results-field,
-.city-name,
-figcaption {
+.city-name figcaption {
   font-size: 2em;
 }
 
 .city-name {
   margin-bottom: 0.4rem;
 }
-/*# sourceMappingURL=style.css.map */
+
+@media screen and (max-width: 1000px) {
+  .cities {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  form {
+    width: 20rem;
+  }
+}
+@media screen and (max-width: 700px) {
+  h1,
+.temp {
+    font-size: 1.5rem;
+  }
+
+  #results_field {
+    margin-top: 1.25rem;
+  }
+
+  .cities {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}/*# sourceMappingURL=style.css.map */

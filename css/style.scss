@@ -93,7 +93,7 @@ label {
 //cities section
 
 #results_field {
-  margin: 3.15rem 0 1.25rem;
+  margin: 4.4rem 0 1.25rem;
 }
 
 .results {
@@ -103,14 +103,12 @@ label {
   padding: 0 1rem;
 }
 
-#results_field,
 .cities {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem 1.25rem;
 }
 
-#results_field,
 .city {
   position: relative;
   padding: 2.5rem 10%;
@@ -119,7 +117,6 @@ label {
   color: #53627c;
 }
 
-#results_field,
 .city::after {
   content: "";
   width: 90%;
@@ -133,14 +130,12 @@ label {
   background: #fff;
 }
 
-#results_field,
 figcaption {
   margin-top: 0.6rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
-#results_field,
 .temp {
   font-size: 3rem;
   font-weight: 500;
@@ -148,13 +143,10 @@ figcaption {
   color: #1e2432;
 }
 
-#results_field,
-.city,
-sup {
+.city sup {
   font-size: 0.5em;
 }
 
-#results_field,
 .city-name sup {
   padding: 0.2em 0.6em;
   border-radius: 1.9rem;
@@ -162,19 +154,42 @@ sup {
   background: #ff8c00;
 }
 
-#results_field,
 .icon {
   margin-top: 0.6rem;
   width: 6.25rem;
   height: 6.25rem;
 }
 
-#results_field,
-.city-name,
-figcaption {
+.city-name figcaption {
   font-size: 2em;
 }
 
 .city-name {
   margin-bottom: 0.4rem;
+}
+
+//media queries
+
+@media screen and (max-width: 1000px) {
+  .cities {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  form {
+    width: 20rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  h1,
+  .temp {
+    font-size: 1.5rem;
+  }
+
+  #results_field {
+    margin-top: 1.25rem;
+  }
+  .cities {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
