@@ -39,10 +39,7 @@ window.addEventListener('load', () => {
 
             const weatherData = async () => {
                 let response = await fetch('http://' + api)
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                  }
+
                 let weather = await response.json()
                 return weather
             }
@@ -78,7 +75,7 @@ form.addEventListener('submit', e => {
     let inputVal = input.value;
 
     //confirm if city is already displayed
-    const listItems = list.querySelectorAll('#results_field .city')
+    const listItems = list.querySelectorAll('.city')
     const listArray = Array.from(listItems)
 
     if (listArray.length > 0) {
@@ -96,10 +93,11 @@ form.addEventListener('submit', e => {
             } else {
                 content = item.querySelector('.city-name span').textContent.toLowerCase()
             }
-            return content = inputVal.toLowerCase()
-            })
+            return content == inputVal.toLowerCase()
+        })
 
-        if (filteredArray.length > 1) {
+        if (filteredArray.length > 0) {
+            mainTitle.style.fontSize = '1.5rem'
             mainTitle.textContent = `You already know the weather for ${
                 filteredArray[0].querySelector('.city-name span').textContent},
                 if you are refering to a different city please provide the country code as well`
@@ -114,9 +112,6 @@ form.addEventListener('submit', e => {
     const weatherData = async () => {
         let response = await fetch(api)
         
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
         let weather = await response.json()
         return weather
     }
